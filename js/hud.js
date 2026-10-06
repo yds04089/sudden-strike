@@ -172,19 +172,19 @@ const Hud = (() => {
   // 모바일: 체력/탄약을 하단 중앙 한 줄로 (좌: 조이스틱, 우: 버튼 영역을 피한다)
   function drawStatusMobile(p, W, H) {
     const w = p.weps[p.cur], d = w.def;
-    const pw = 330 * u, ph = 54 * u, x = W / 2 - pw / 2, y = H - ph - 8 * u;
+    const pw = 280 * u, ph = 54 * u, x = W / 2 - pw / 2, y = H - ph - 8 * u;
     g.fillStyle = 'rgba(0,0,0,0.5)'; g.fillRect(x, y, pw, ph);
     const hpC = p.hp < 30 ? '#ff4d4d' : '#fff';
     text('HP', x + 10 * u, y + 20 * u, 13, '#bbb');
     text(Math.max(0, Math.ceil(p.hp)), x + 40 * u, y + 24 * u, 24, hpC);
-    g.fillStyle = 'rgba(255,255,255,0.2)'; g.fillRect(x + 10 * u, y + 34 * u, 130 * u, 9 * u);
-    g.fillStyle = p.hp < 30 ? '#ff4d4d' : '#4ddc7a'; g.fillRect(x + 10 * u, y + 34 * u, 130 * u * Math.max(0, p.hp) / 100, 9 * u);
+    g.fillStyle = 'rgba(255,255,255,0.2)'; g.fillRect(x + 10 * u, y + 34 * u, 110 * u, 9 * u);
+    g.fillStyle = p.hp < 30 ? '#ff4d4d' : '#4ddc7a'; g.fillRect(x + 10 * u, y + 34 * u, 110 * u * Math.max(0, p.hp) / 100, 9 * u);
     text(d.name, x + pw - 10 * u, y + 18 * u, 13, '#ddd', 'right');
     if (!d.melee) {
       text(w.reserve, x + pw - 10 * u, y + 44 * u, 18, '#bbb', 'right');
       text(w.mag, x + pw - 52 * u, y + 44 * u, 28, w.mag <= d.mag * 0.25 ? '#ff6b5a' : '#fff', 'right');
     } else text('—', x + pw - 10 * u, y + 44 * u, 24, '#bbb', 'right');
-    if (p.invuln > 0) text('보호', x + 170 * u, y + 20 * u, 12, '#ffd34d', 'center', 'normal');
+    if (p.invuln > 0) text('보호', x + 128 * u, y + 20 * u, 12, '#ffd34d', 'center', 'normal');
   }
 
   function drawStatus(p, W, H) {
